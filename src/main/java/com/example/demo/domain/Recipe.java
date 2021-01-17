@@ -26,6 +26,9 @@ public class Recipe {
     @Lob //binary large field is created (Blob field)
     private Byte[] image;
 
+    @Enumerated(value = EnumType.STRING)
+    private  Difficulty difficulty;
+
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
