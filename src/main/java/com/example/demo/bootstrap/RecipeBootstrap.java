@@ -154,20 +154,20 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "\n"+
                 "Read more at: https://www.simplyrecipes.com/recipes/spicy_three_chile_guacamole/"
         );
-        guacNotes.setRecipe(guacamole);
+        //guacNotes.setRecipe(guacamole);
 
         guacamole.setNotes(guacNotes);
-
-        guacamole.getIngredients().add(new Ingredient("ripe avacados", new BigDecimal(2), each,guacamole));
-        guacamole.getIngredients().add(new Ingredient("salt", new BigDecimal(0.2), teaSpoon,guacamole));
-        guacamole.getIngredients().add(new Ingredient("fresh lime juice or lemon juice", new BigDecimal(1), tableSpoon,guacamole));
-        guacamole.getIngredients().add(new Ingredient("minced red onion or thinly sliced green onion", new BigDecimal(2), tableSpoon,guacamole));
-        guacamole.getIngredients().add(new Ingredient("chiles, stems and seeds removed, minced", new BigDecimal(2), each,guacamole));
-        guacamole.getIngredients().add(new Ingredient("cilantro (leaves and tender stems), finely chopped", new BigDecimal(2), tableSpoon,guacamole));
-        guacamole.getIngredients().add(new Ingredient("freshly grated black pepper", new BigDecimal(1), dash,guacamole));
-        guacamole.getIngredients().add(new Ingredient("tomato, seeds and pulp removed, chopped", new BigDecimal(0.5),ripe,guacamole));
-        guacamole.getIngredients().add(new Ingredient("Red radishes or jicama, to garnish", new BigDecimal(1),each,guacamole));
-        guacamole.getIngredients().add(new Ingredient("Tortilla chips, to serve", new BigDecimal(1), each,guacamole));
+        //added helper method to get rid of sending recipe, helper class
+        guacamole.getIngredients().add(new Ingredient("ripe avacados", new BigDecimal(2), each));
+        guacamole.getIngredients().add(new Ingredient("salt", new BigDecimal(0.2), teaSpoon));
+        guacamole.getIngredients().add(new Ingredient("fresh lime juice or lemon juice", new BigDecimal(1), tableSpoon));
+        guacamole.getIngredients().add(new Ingredient("minced red onion or thinly sliced green onion", new BigDecimal(2), tableSpoon));
+        guacamole.getIngredients().add(new Ingredient("chiles, stems and seeds removed, minced", new BigDecimal(2), each));
+        guacamole.getIngredients().add(new Ingredient("cilantro (leaves and tender stems), finely chopped", new BigDecimal(2), tableSpoon));
+        guacamole.getIngredients().add(new Ingredient("freshly grated black pepper", new BigDecimal(1), dash));
+        guacamole.getIngredients().add(new Ingredient("tomato, seeds and pulp removed, chopped", new BigDecimal(0.5),ripe));
+        guacamole.getIngredients().add(new Ingredient("Red radishes or jicama, to garnish", new BigDecimal(1),each));
+        guacamole.getIngredients().add(new Ingredient("Tortilla chips, to serve", new BigDecimal(1), each));
 
         guacamole.getCategory().add(american);
         guacamole.getCategory().add(mexican);
@@ -203,7 +203,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                         "\n" +
                         "You could also easily double or even triple this recipe for a larger party. A taco and a cold beer on a warm day? Now that’s living!"
                 );
-        chickenTacosNotes.setRecipe(chickenTacos);
+        //chickenTacosNotes.setRecipe(chickenTacos);
         chickenTacos.setNotes(chickenTacosNotes);
 
         chickenTacos.getIngredients().add(new Ingredient("ancho chili powder", new BigDecimal(2), tableSpoon,chickenTacos));
