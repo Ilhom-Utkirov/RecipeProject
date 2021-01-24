@@ -5,6 +5,31 @@
     <title>Recipe Home</title>
 </head>
 <body>
-    <h1>Recipes 1111</h1>
+<!--/*@thymesVar id="owner" type="com.example.demo.model.Owner"*/-->
+<h1 th:text="'Recipe List'">Recipe List</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>prepTime</th>
+        <th>CookTime</th>
+        <th>Difficulty</th>
+        <th>Directions</th>
+        <th>Ingredients</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="recipe: ${recipes}">
+        <td th:text="${recipe?.id}">1</td>
+        <td th:text="${recipe?.prepTime}">0</td>
+        <td th:text="${recipe?.cookTime}">0</td>
+        <td th:text="${recipe?.difficulty}">difficulty</td>
+        <td th:text="${recipe?.directions}">directions</td>
+        <td th:text="${recipe?.ingredients}">Ingredients</td>
+    </tr>
+    </tbody>
+</table>
 </body>
+
 </html>
