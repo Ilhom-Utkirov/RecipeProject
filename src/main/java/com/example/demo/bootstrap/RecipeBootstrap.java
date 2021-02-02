@@ -6,10 +6,12 @@ import com.example.demo.repositories.RecipeRepository;
 import com.example.demo.repositories.UnitOfMeasureRepository;
 import com.sun.org.apache.regexp.internal.RE;
 import com.sun.org.apache.xalan.internal.xsltc.dom.UnionIterator;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -17,6 +19,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+@Slf4j
 @Component
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -32,12 +35,14 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     }
 
     @Override
+    @Transactional
     public void onApplicationEvent(ContextRefreshedEvent event) {
         recipeRepository.saveAll(getRecipes());
+        log.debug("Loading bootstrap data");
     }
 
     private List<Recipe> getRecipes(){
-
+        log.debug("I am inside getRecipes");
         //for the beginning only 2 recipes exist
         List<Recipe> recipes = new ArrayList<>(2);
 
@@ -45,7 +50,10 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         Optional<UnitOfMeasure> eachUOM = unitOfMeasureRepository.findByDescription("Each");
         if(!eachUOM.isPresent()){
             throw new RuntimeException("Expexted UOM not Found");
+
         }
+
+
 
         Optional<UnitOfMeasure> teaSpoonUOM = unitOfMeasureRepository.findByDescription("Teaspoon");
         if(!teaSpoonUOM.isPresent()){
@@ -169,8 +177,8 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         guacamole.getIngredients().add(new Ingredient("Red radishes or jicama, to garnish", new BigDecimal(1),each));
         guacamole.getIngredients().add(new Ingredient("Tortilla chips, to serve", new BigDecimal(1), each));
 
-        guacamole.getCategory().add(american);
-        guacamole.getCategory().add(mexican);
+        guacamole.getCategories().add(american);
+        guacamole.getCategories().add(mexican);
 
         recipes.add(guacamole);
 
@@ -215,8 +223,8 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         chickenTacos.getIngredients().add(new Ingredient("fresh-squeezed orange juice", new BigDecimal(3), teaSpoon,chickenTacos));
         chickenTacos.getIngredients().add(new Ingredient("skinless, boneless chicken thighs (1 1/4 pounds)", new BigDecimal(5), each,chickenTacos));
 
-        chickenTacos.getCategory().add(italian);
-        chickenTacos.getCategory().add(fastFood);
+        chickenTacos.getCategories().add(italian);
+        chickenTacos.getCategories().add(fastFood);
 
         recipes.add(chickenTacos);
 
