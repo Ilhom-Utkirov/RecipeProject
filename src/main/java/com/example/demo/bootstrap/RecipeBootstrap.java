@@ -42,7 +42,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     }
 
     private List<Recipe> getRecipes(){
-        log.debug("I am inside getRecipes");
+        //log.debug("I am inside getRecipes");
         //for the beginning only 2 recipes exist
         List<Recipe> recipes = new ArrayList<>(2);
 
@@ -123,7 +123,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
             throw new RuntimeException("Expected Category not found");
         }
 
-        Optional<Category> fastFoodCategoryOptional = categoryRepository.findByDescription("Fast food");
+        Optional<Category> fastFoodCategoryOptional = categoryRepository.findByDescription("FastFood");
         if(!fastFoodCategoryOptional.isPresent()){
             throw new RuntimeException("Expected Category not found");
         }
@@ -213,15 +213,25 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 );
         //chickenTacosNotes.setRecipe(chickenTacos);
         chickenTacos.setNotes(chickenTacosNotes);
-
+/*
         chickenTacos.getIngredients().add(new Ingredient("ancho chili powder", new BigDecimal(2), tableSpoon,chickenTacos));
         chickenTacos.getIngredients().add(new Ingredient(" dried oregano", new BigDecimal(1), teaSpoon,chickenTacos));
         chickenTacos.getIngredients().add(new Ingredient(" dried cumin", new BigDecimal(1), teaSpoon,chickenTacos));
         chickenTacos.getIngredients().add(new Ingredient("sugar", new BigDecimal(1), teaSpoon,chickenTacos));
-        chickenTacos.getIngredients().add(new Ingredient("salt", new BigDecimal(0.5), teaSpoon,chickenTacos));
+        chickenTacos.getIngredients().add(new Ingredient("salt", new BigDecimal(5), teaSpoon,chickenTacos));
         chickenTacos.getIngredients().add(new Ingredient(" garlic, finely chopped", new BigDecimal(1), clove,chickenTacos));
         chickenTacos.getIngredients().add(new Ingredient("fresh-squeezed orange juice", new BigDecimal(3), teaSpoon,chickenTacos));
         chickenTacos.getIngredients().add(new Ingredient("skinless, boneless chicken thighs (1 1/4 pounds)", new BigDecimal(5), each,chickenTacos));
+*/
+
+        chickenTacos.getIngredients().add(new Ingredient("ancho chili powder", new BigDecimal(2), tableSpoon));
+        chickenTacos.getIngredients().add(new Ingredient(" dried oregano", new BigDecimal(1), teaSpoon));
+        chickenTacos.getIngredients().add(new Ingredient(" dried cumin", new BigDecimal(1), teaSpoon));
+        chickenTacos.getIngredients().add(new Ingredient("sugar", new BigDecimal(1), teaSpoon));
+        chickenTacos.getIngredients().add(new Ingredient("salt", new BigDecimal(5), teaSpoon));
+        chickenTacos.getIngredients().add(new Ingredient(" garlic, finely chopped", new BigDecimal(1), clove));
+        chickenTacos.getIngredients().add(new Ingredient("fresh-squeezed orange juice", new BigDecimal(3), teaSpoon));
+        chickenTacos.getIngredients().add(new Ingredient("skinless, boneless chicken thighs (1 1/4 pounds)", new BigDecimal(5), each));
 
         chickenTacos.getCategories().add(italian);
         chickenTacos.getCategories().add(fastFood);

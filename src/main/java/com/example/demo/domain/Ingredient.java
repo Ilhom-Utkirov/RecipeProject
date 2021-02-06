@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Data
-@EqualsAndHashCode(exclude = "recipe")
+@EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Ingredient {
 
@@ -41,5 +41,14 @@ public class Ingredient {
         this.recipe=recipe;
     }
 
-
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", amount=" + amount +
+                ", uom=" + uom +
+                ", recipe=" + recipe +
+                '}';
+    }
 }
