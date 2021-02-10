@@ -14,6 +14,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class RecipeServiceImplTest {
+
     RecipeServiceImpl recipeService;
 
     @Mock
@@ -22,27 +23,24 @@ public class RecipeServiceImplTest {
     @Before
     public void setUp() throws Exception{
         MockitoAnnotations.initMocks(this);
-
         recipeService = new RecipeServiceImpl(recipeRepository);
+
 
     }
 
     @Test
-    public void getRecipes() throws Exception {
+    public void getRecipes() {
 
         Recipe recipe = new Recipe();
-        HashSet<Recipe> recipesData = new HashSet<>();
+        HashSet recipeData = new HashSet();
+        recipeData.add(recipe);
 
-        recipesData.add(recipe);
-
-        when(recipeRepository.findAll()).thenReturn(recipesData);
+        //when(recipeService.getRecipes().thenReturn(recipeData));
+        when(recipeRepository.findAll()).thenReturn(recipeData);
 
         Set<Recipe> recipes = recipeService.getRecipes();
+        assertEquals(recipes.size(), 1);
 
-        assertEquals(recipes.size(), 3); //check if size equals to 2 then error happens
-
-        //verify the interactions of recipe repository and find all 1 times  only once not twice
-        verify(recipeRepository, times(1)).findAll();
-
+        verify(recipeRepository, times(3)).findAll();
     }
 }
