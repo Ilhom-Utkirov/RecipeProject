@@ -138,7 +138,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         Recipe guacamole = new Recipe();
         guacamole.setDescription("Perfect Guacamole");
         guacamole.setCookTime(10);
-        guacamole.setPrepTime(0);
+        guacamole.setPrepTime(20);
         guacamole.setServings(4);
         guacamole.setDifficulty(Difficulty.EASY);
         guacamole.setDirections(
@@ -167,18 +167,20 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         guacamole.setNotes(guacNotes);
         //added helper method to get rid of sending recipe, helper class
         guacamole.getIngredients().add(new Ingredient("ripe avacados", new BigDecimal(2), each));
-        guacamole.getIngredients().add(new Ingredient("salt", new BigDecimal(0.2), teaSpoon));
+        guacamole.getIngredients().add(new Ingredient("salt", new BigDecimal(2), teaSpoon));
         guacamole.getIngredients().add(new Ingredient("fresh lime juice or lemon juice", new BigDecimal(1), tableSpoon));
         guacamole.getIngredients().add(new Ingredient("minced red onion or thinly sliced green onion", new BigDecimal(2), tableSpoon));
         guacamole.getIngredients().add(new Ingredient("chiles, stems and seeds removed, minced", new BigDecimal(2), each));
         guacamole.getIngredients().add(new Ingredient("cilantro (leaves and tender stems), finely chopped", new BigDecimal(2), tableSpoon));
         guacamole.getIngredients().add(new Ingredient("freshly grated black pepper", new BigDecimal(1), dash));
-        guacamole.getIngredients().add(new Ingredient("tomato, seeds and pulp removed, chopped", new BigDecimal(0.5),ripe));
-        guacamole.getIngredients().add(new Ingredient("Red radishes or jicama, to garnish", new BigDecimal(1),each));
-        guacamole.getIngredients().add(new Ingredient("Tortilla chips, to serve", new BigDecimal(1), each));
+        guacamole.getIngredients().add(new Ingredient("tomato, seeds and pulp removed, chopped", new BigDecimal(5),ripe));
 
         guacamole.getCategories().add(american);
         guacamole.getCategories().add(mexican);
+
+        guacamole.setUrl("https://www.simplyrecipes.com/recipes/spicy_three_chile_guacamole/");
+        guacamole.setServings(5);
+        guacamole.setSource("Simple Recipe");
 
         recipes.add(guacamole);
 
@@ -235,6 +237,8 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
         chickenTacos.getCategories().add(italian);
         chickenTacos.getCategories().add(fastFood);
+
+        chickenTacos.setUrl("");
 
         recipes.add(chickenTacos);
 
